@@ -1,0 +1,339 @@
+[
+  {
+    "package": {
+      "name": "aptos-wallet-api",
+      "version": "0.3.3"
+    },
+    "parent": null
+  },
+  {
+    "package": {
+      "name": "@scure/bip32",
+      "version": "^1.1.0"
+    },
+    "parent": {
+      "package": {
+        "name": "aptos-wallet-api",
+        "version": "0.3.3"
+      },
+      "parent": null
+    }
+  },
+  {
+    "package": {
+      "name": "@scure/bip39",
+      "version": "^1.1.0"
+    },
+    "parent": {
+      "package": {
+        "name": "aptos-wallet-api",
+        "version": "0.3.3"
+      },
+      "parent": null
+    }
+  },
+  {
+    "package": {
+      "name": "aptos",
+      "version": "^1.3.17"
+    },
+    "parent": {
+      "package": {
+        "name": "aptos-wallet-api",
+        "version": "0.3.3"
+      },
+      "parent": null
+    }
+  },
+  {
+    "package": {
+      "name": "big-integer",
+      "version": "^1.6.51"
+    },
+    "parent": {
+      "package": {
+        "name": "aptos-wallet-api",
+        "version": "0.3.3"
+      },
+      "parent": null
+    }
+  },
+  {
+    "package": {
+      "name": "cross-fetch",
+      "version": "^3.1.5"
+    },
+    "parent": {
+      "package": {
+        "name": "aptos-wallet-api",
+        "version": "0.3.3"
+      },
+      "parent": null
+    }
+  },
+  {
+    "package": {
+      "name": "@noble/hashes",
+      "version": "~1.1.1"
+    },
+    "parent": {
+      "package": {
+        "name": "aptos-wallet-api",
+        "version": "0.3.3"
+      },
+      "parent": null
+    }
+  },
+  {
+    "package": {
+      "name": "@noble/secp256k1",
+      "version": "~1.6.0"
+    },
+    "parent": {
+      "package": {
+        "name": "aptos-wallet-api",
+        "version": "0.3.3"
+      },
+      "parent": null
+    }
+  },
+  {
+    "package": {
+      "name": "@scure/base",
+      "version": "~1.1.0"
+    },
+    "parent": {
+      "package": {
+        "name": "aptos-wallet-api",
+        "version": "0.3.3"
+      },
+      "parent": null
+    }
+  },
+  {
+    "package": {
+      "name": "@noble/hashes",
+      "version": "1.1.3"
+    },
+    "parent": {
+      "package": {
+        "name": "aptos",
+        "version": "^1.3.17"
+      },
+      "parent": {
+        "package": {
+          "name": "aptos-wallet-api",
+          "version": "0.3.3"
+        },
+        "parent": null
+      }
+    }
+  },
+  {
+    "package": {
+      "name": "@scure/bip39",
+      "version": "1.1.0"
+    },
+    "parent": {
+      "package": {
+        "name": "aptos",
+        "version": "^1.3.17"
+      },
+      "parent": {
+        "package": {
+          "name": "aptos-wallet-api",
+          "version": "0.3.3"
+        },
+        "parent": null
+      }
+    }
+  },
+  {
+    "package": {
+      "name": "axios",
+      "version": "0.27.2"
+    },
+    "parent": {
+      "package": {
+        "name": "aptos-wallet-api",
+        "version": "0.3.3"
+      },
+      "parent": null
+    }
+  },
+  {
+    "package": {
+      "name": "form-data",
+      "version": "4.0.0"
+    },
+    "parent": {
+      "package": {
+        "name": "aptos-wallet-api",
+        "version": "0.3.3"
+      },
+      "parent": null
+    }
+  },
+  {
+    "package": {
+      "name": "tweetnacl",
+      "version": "1.0.3"
+    },
+    "parent": {
+      "package": {
+        "name": "aptos-wallet-api",
+        "version": "0.3.3"
+      },
+      "parent": null
+    }
+  },
+  {
+    "package": {
+      "name": "node-fetch",
+      "version": "2.6.7"
+    },
+    "parent": {
+      "package": {
+        "name": "aptos-wallet-api",
+        "version": "0.3.3"
+      },
+      "parent": null
+    }
+  },
+  {
+    "package": {
+      "name": "follow-redirects",
+      "version": "^1.14.9"
+    },
+    "parent": {
+      "package": {
+        "name": "aptos-wallet-api",
+        "version": "0.3.3"
+      },
+      "parent": null
+    }
+  },
+  {
+    "package": {
+      "name": "form-data",
+      "version": "^4.0.0"
+    },
+    "parent": {
+      "package": {
+        "name": "axios",
+        "version": "0.27.2"
+      },
+      "parent": {
+        "package": {
+          "name": "aptos-wallet-api",
+          "version": "0.3.3"
+        },
+        "parent": null
+      }
+    }
+  },
+  {
+    "package": {
+      "name": "asynckit",
+      "version": "^0.4.0"
+    },
+    "parent": {
+      "package": {
+        "name": "aptos-wallet-api",
+        "version": "0.3.3"
+      },
+      "parent": null
+    }
+  },
+  {
+    "package": {
+      "name": "combined-stream",
+      "version": "^1.0.8"
+    },
+    "parent": {
+      "package": {
+        "name": "aptos-wallet-api",
+        "version": "0.3.3"
+      },
+      "parent": null
+    }
+  },
+  {
+    "package": {
+      "name": "mime-types",
+      "version": "^2.1.12"
+    },
+    "parent": {
+      "package": {
+        "name": "aptos-wallet-api",
+        "version": "0.3.3"
+      },
+      "parent": null
+    }
+  },
+  {
+    "package": {
+      "name": "whatwg-url",
+      "version": "^5.0.0"
+    },
+    "parent": {
+      "package": {
+        "name": "aptos-wallet-api",
+        "version": "0.3.3"
+      },
+      "parent": null
+    }
+  },
+  {
+    "package": {
+      "name": "delayed-stream",
+      "version": "~1.0.0"
+    },
+    "parent": {
+      "package": {
+        "name": "aptos-wallet-api",
+        "version": "0.3.3"
+      },
+      "parent": null
+    }
+  },
+  {
+    "package": {
+      "name": "mime-db",
+      "version": "~1.24.0"
+    },
+    "parent": {
+      "package": {
+        "name": "aptos-wallet-api",
+        "version": "0.3.3"
+      },
+      "parent": null
+    }
+  },
+  {
+    "package": {
+      "name": "tr46",
+      "version": "~0.0.3"
+    },
+    "parent": {
+      "package": {
+        "name": "aptos-wallet-api",
+        "version": "0.3.3"
+      },
+      "parent": null
+    }
+  },
+  {
+    "package": {
+      "name": "webidl-conversions",
+      "version": "^3.0.0"
+    },
+    "parent": {
+      "package": {
+        "name": "aptos-wallet-api",
+        "version": "0.3.3"
+      },
+      "parent": null
+    }
+  }
+]
