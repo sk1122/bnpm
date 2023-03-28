@@ -1,3 +1,4 @@
+use std::path::Path;
 use serde::{Deserialize, Serialize};
 
 #[derive(Serialize, Deserialize, Clone, Debug)]
@@ -25,4 +26,11 @@ pub enum ReturnType {
     Full,
     Partial,
     Incomplete
+}
+
+#[derive(Clone, Debug)]
+pub struct ProjectRoot {
+    pub name: String,
+    pub path: String,
+    pub package: Package
 }

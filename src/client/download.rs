@@ -5,6 +5,8 @@ use serde_json::Value;
 
 use crate::common::types::Package;
 
+use super::find_package_in_root;
+
 pub fn get_dependency_of_package(package: &Package) -> Option<Vec<Package>> {
     let url = format!("https://registry.npmjs.org/{}", package.name);
     
@@ -66,23 +68,26 @@ pub fn generate_download_url(package: &Package) -> Option<String> {
 }
 
 pub fn download_package(package: &Package) -> Option<bool> {
-    // let url = format!("https://registry.npmjs.org/{}", package.name);
-    let download_url = generate_download_url(package);
-
-    if let Some(url) = download_url {
-        let res = reqwest::blocking::get(url).unwrap();
+    if !find_package_in_root(package) {
+        let download_url = generate_download_url(package);
     
-        let content = BufReader::new(res);
-        let tarfile = GzDecoder::new(content);
-        let mut archive = Archive::new(tarfile);
+        if let Some(url) = download_url {
+            let res = reqwest::blocking::get(url).unwrap();
     
-        println!("downloaded {:?}", package);
+            let content = BufReader::new(res);
+            let tarfile = GzDecoder::new(content);
+            let mut archive = Archive::new(tarfile);
     
-        archive.unpack(format!("/home/cosmix/.bnpm/{}+{}", package.name, package.version)).unwrap();
+            println!("downloaded {:?}", package);
     
-        Some(true)
+            archive.unpack(format!("/home/cosmix/.bnpm/{}/{}", package.name, package.version)).unwrap();
+    
+            Some(true)
+        } else {
+            Some(false)
+        }
     } else {
-        Some(false)
+        Some(true)
     }
 }
 

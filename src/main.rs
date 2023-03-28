@@ -1,5 +1,6 @@
-use bnpm::{client::{resolve_package_versions, install::{need_to_install, get_installed_packages}, download::{get_dependency_of_package, download_packages}, get_parent_package}, tree::generate_tree_for_packages, common::types::Package};
+use bnpm::{client::{resolve_package_versions, install::{need_to_install, get_installed_packages}, download::{get_dependency_of_package, download_packages}, get_parent_package, resolve::resolve_packages}, tree::generate_tree_for_packages, common::types::Package};
 use clap::{Parser, Subcommand};
+use semver::{VersionReq, Version};
 
 // things to remember
 // warn for missing or mismatched peer dependency
@@ -52,7 +53,7 @@ fn main() {
             // download packages that needs to be download
             let downloaded_packages = download_packages(&need_to_be_installed).unwrap();
 
-            println!("{:?}", downloaded_packages);
+            // println!("{:?}", tree);
 
             // package has dependencies a v1.0, b v2.0, c v1.0
             // package a has dependencies b v1.0, d v1.0
@@ -62,7 +63,7 @@ fn main() {
 
             // package -> a v1.0, b v2.0, c v1.0, d v1.0 --> (a v1.0 => b v1.0) --> (b v1.0 => c v2.0) --> (c v1.0 => ) --> (d v1.0 => ) ---> (b v1.0 => c v1.0)
 
-            // resolve_packages(downloaded_packages, need_not_be_installed, tree);
+            resolve_packages(tree);
         }
     }
 }

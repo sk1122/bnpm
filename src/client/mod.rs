@@ -35,5 +35,16 @@ pub fn get_parent_package() -> Option<Package> {
     })
 }
 
+pub fn find_package_in_root(package: &Package) -> bool {
+    let boolean = std::fs::read_dir(format!("~/.bnpm/{}/{}", package.name, package.version)).and_then(|x| Ok(x));
+
+    if let Ok(_x) = boolean {
+        return true
+    } else {
+        return false
+    }
+}
+
 pub mod install;
 pub mod download;
+pub mod resolve;
