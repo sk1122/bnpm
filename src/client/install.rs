@@ -5,7 +5,7 @@ pub fn get_installed_packages() -> Option<Vec<Package>> {
     let file_contents = std::fs::read_to_string("/home/cosmix/.bnpm/installed.json").unwrap();
     let file_content_to_struct: Value = serde_json::from_str(file_contents.as_str()).unwrap();
 
-    let installed_packages = &file_content_to_struct["packages"];
+    let installed_packages = &file_content_to_struct;
 
     match installed_packages {
         Value::Array(packages) => {
@@ -19,6 +19,13 @@ pub fn get_installed_packages() -> Option<Vec<Package>> {
         },
         _ => None
     }
+}
+
+pub fn update_installed_packages(packages: &Vec<Package>) {
+    let string = serde_json::to_string_pretty(packages).unwrap();
+    
+    println!("{:?}", std::fs::read("/home/cosmix/.bnpm/installed.json"));
+    std::fs::write("/home/cosmix/.bnpm/installed.json", string).unwrap();
 }
 
 pub fn need_to_install(packages: &Vec<Node>) -> Option<(Vec<Package>, Vec<Package>)> {
@@ -35,5 +42,6 @@ pub fn need_to_install(packages: &Vec<Node>) -> Option<(Vec<Package>, Vec<Packag
         }
     }
 
+    println!("{:?} \n\n {:?}", need_to_be_installed, need_not_be_installed);
     Some((need_to_be_installed, need_not_be_installed))
 }

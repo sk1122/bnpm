@@ -81,10 +81,10 @@ pub fn generate_tree_for_packages(parent: &Package, packages: &Vec<Package>) -> 
             match contains {
                 ReturnType::Full => {
                     // pass
-                    println!("found a full match => {:?}", dependency);
+                    // println!("found a full match => {:?}", dependency);
                 },
                 ReturnType::Partial => {
-                    println!("found a partial match => {:?}", dependency);
+                    // println!("found a partial match => {:?}", dependency);
 
                     let dependency_node = Graph {
                         package: dependency.to_owned(),
@@ -95,7 +95,7 @@ pub fn generate_tree_for_packages(parent: &Package, packages: &Vec<Package>) -> 
                     queue.push_back(dependency_node);
                 },
                 ReturnType::Incomplete => {
-                    println!("found a incomplete match => {:?}", dependency);
+                    // println!("found a incomplete match => {:?}", dependency);
 
                     let dependency_node = Graph {
                         package: dependency.to_owned(),

@@ -1,4 +1,4 @@
-use bnpm::{client::{resolve_package_versions, install::{need_to_install, get_installed_packages}, download::{get_dependency_of_package, download_packages}, get_parent_package, resolve::resolve_packages}, tree::generate_tree_for_packages, common::types::Package};
+use bnpm::{client::{resolve_package_versions, install::{need_to_install, get_installed_packages, update_installed_packages}, download::{get_dependency_of_package, download_packages}, get_parent_package, resolve::resolve_packages}, tree::generate_tree_for_packages, common::types::Package};
 use clap::{Parser, Subcommand};
 use semver::{VersionReq, Version};
 
@@ -26,7 +26,7 @@ struct Args {
 fn main() {
     let args = Args::parse();
 
-    println!("{:?}", args);
+    // println!("{:?}", args);
 
     match args.install {
         SubCommand::Install { packages } => {
@@ -46,14 +46,16 @@ fn main() {
 
             // generate tree of packages and their dependencies
             let tree = generate_tree_for_packages(&parent, &package_with_versions).unwrap();
-            
+
             // return a list of already installed packages
             let (need_to_be_installed, need_not_be_installed) = need_to_install(&tree).unwrap();
 
             // download packages that needs to be download
             let downloaded_packages = download_packages(&need_to_be_installed).unwrap();
 
-            // println!("{:?}", tree);
+            update_installed_packages(&tree.iter().map(|x| x.package.clone()).collect());
+
+            // // println!("{:?}", tree);
 
             // package has dependencies a v1.0, b v2.0, c v1.0
             // package a has dependencies b v1.0, d v1.0
